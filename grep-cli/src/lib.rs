@@ -202,7 +202,7 @@ pub use wtr::{
 /// `command foo < some-file` or `cat some-file | command foo` might instead
 /// only search stdin for occurrences of `foo`.
 pub fn is_readable_stdin() -> bool {
-    #[cfg(unix)]
+    #[cfg(any(unix, target_os = "redox"))]
     fn imp() -> bool {
         use std::os::unix::fs::FileTypeExt;
         use same_file::Handle;

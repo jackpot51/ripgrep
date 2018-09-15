@@ -19,6 +19,8 @@ encoding_rs_io = "0.1.2"
 grep-matcher = { version = "0.1.1", path = "../grep-matcher" }
 log = "0.4.5"
 memchr = "2.0.2"
+
+[target.'cfg(not(target_os = "redox"))'.dependencies]
 memmap = "0.6.2"
 
 [dev-dependencies]

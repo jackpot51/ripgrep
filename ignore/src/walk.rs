@@ -257,7 +257,7 @@ struct DirEntryRaw {
     ino: u64,
     /// The underlying metadata (Windows only). We store this on Windows
     /// because this comes for free while reading a directory.
-    #[cfg(windows)]
+    #[cfg(not(unix))]
     metadata: fs::Metadata,
 }
 
@@ -340,7 +340,7 @@ impl DirEntryRaw {
         DirEntryRaw::from_entry_os(depth, ent, ty)
     }
 
-    #[cfg(windows)]
+    #[cfg(not(unix))]
     fn from_entry_os(
         depth: usize,
         ent: &fs::DirEntry,

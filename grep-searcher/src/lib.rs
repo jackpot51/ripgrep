@@ -106,6 +106,7 @@ extern crate grep_matcher;
 #[macro_use]
 extern crate log;
 extern crate memchr;
+#[cfg(not(target_os = "redox"))]
 extern crate memmap;
 #[cfg(test)]
 extern crate regex;
